@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вычисление тригонометрических функций</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Вычисление тригонометрических функций</h1>
+        <form method="post" class="mt-4">
+            <div class="form-group">
+                <label for="angle">Угол:</label>
+                <input type="text" name="angle" id="angle" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="function">Функция:</label>
+                <select name="function" id="function" class="form-control">
+                    <option value="sin">sin</option>
+                    <option value="cos">cos</option>
+                    <option value="tan">tan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="unit">Единица измерения:</label>
+                <select name="unit" id="unit" class="form-control">
+                    <option value="radians">Радианы</option>
+                    <option value="degrees">Градусы</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="precision">Точность (количество знаков после запятой):</label>
+                <input type="number" name="precision" id="precision" class="form-control" value="5" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Вычислить</button>
+        </form>
+
+        {% if result %}
+            <div class="alert alert-success mt-4">
+                <strong>Результат:</strong> {{ result }}
+            </div>
+        {% elif error_message %}
+            <div class="alert alert-danger mt-4">
+                <strong>Ошибка:</strong> {{ error_message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
